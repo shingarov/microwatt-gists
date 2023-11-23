@@ -1,8 +1,13 @@
 #!/bin/bash
 
-if [ ! -x "$(pwd)/microwatt/LX/build-bitstream.sh" ]; then
+if [ ! -x "$(pwd)/LX/build-bitstream.sh" ]; then
   echo "Please run me from the directory that is the common parent of microwatt and mw"
-  exit 0
+  exit 1
+fi
+
+if [ ! -f "$(pwd)/mw/fusesoc.conf" ]; then
+  echo "Directory mw must already contain initialized fusesoc"
+  exit 1
 fi
 
 v=`which vivado`
