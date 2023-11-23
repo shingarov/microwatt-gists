@@ -50,4 +50,7 @@ for FPGA configuration (e.g. to just quickly try if the bitstream works,
 directly configuring Microwatt over JTAG is much faster).
 
 7. ...the story about U-boot, Linux etc goes in here...
-
+```
+make CROSS_COMPILE=powerpc64le-linux-gnu- ARCH=powerpc O=build microwatt_arty_defconfig
+make -j32 CROSS_COMPILE=powerpc64le-linux-gnu- ARCH=powerpc O=build
+```
