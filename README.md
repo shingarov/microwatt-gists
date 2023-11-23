@@ -25,3 +25,29 @@ script.
 *It works on my machine*&#8482;,
 but is mainly there for human reading.
 
+### Generating IP cores and building μW
+
+1. From within `microwatt-gists`, clone microwatt
+(and checkout whatever branch you are interested in).
+
+2. Get yourself an initial Python environment to install
+Migen, LiteX and FuseSoc into.
+While I am writing this (November 2023) I use Python 3.11.6 and I just
+`rm -rf  ~/.local/lib/python3.11/site-packages/*`;
+I find the various upstream setup scripts we are going to run, are fighting
+against `virtualenv` so it's causing more trouble than it is supposed to solve.
+
+3. In `LX`, run `./freeze-litex.sh`.
+
+4. (Re)generate the LiteX IP cores (in-place within `microwatt`).
+
+5. Back in `microwatt-gists`, run `./LX/install-fusesoc.sh`.
+
+6. Build Microwatt: `./LX/build-bitstream.sh`.
+At the end it will ask if you want to flash it to the SPI flash
+for indirect programming.  You may want to use that, or some other method
+for FPGA configuration (e.g. to just quickly try if the bitstream works,
+directly configuring Microwatt over JTAG is much faster).
+
+7. ...the story about U-boot, Linux etc goes in here...
+
