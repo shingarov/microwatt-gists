@@ -1,5 +1,19 @@
 #/bin/bash
 
+echo "In this use-todays-lx branch, don't use this script."
+echo "Instead, create"
+echo
+echo "  microwatt-gists$ virtualenv --prompt uW .venv"
+echo
+echo "then activate:"
+echo
+echo "  microwatt-gists$ source .venv/bin/activate"
+echo
+echo "then in the virtualenv install LX:"
+echo "....."
+
+exit 0
+
 # Get LiteX at the SHA at which DRAM worked.
 
 rm -rf migen
